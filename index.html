@@ -46,7 +46,7 @@
         <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
         <a href="#reviews" class="hover:text-blue-400 transition-colors">Reviews</a>
         <div class="text-center">
-          <div class="text-3xl font-bold text-blue-400">(918) 704-8758</div>
+          <a href="tel:+19187048758" class="text-3xl font-bold text-blue-400 hover:text-blue-300 transition-colors">(918) 704-8758</a>
           <div class="text-xs text-gray-300">Call or Text Anytime</div>
         </div>
         <a href="#booking" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-bold transition-all">
@@ -83,7 +83,7 @@
           </div>
           <div class="mt-8 text-center md:text-left">
             <div class="text-yellow-400 text-2xl mb-2">★★★★★ 5.0 Rating</div>
-            <div class="text-gray-300">100+ Happy Customers</div>
+            <div class="text-gray-300">32 Happy Customers</div>
           </div>
         </div>
         
@@ -94,7 +94,7 @@
           </div>
           <div class="space-y-4 pt-8">
             <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Engine Work">
-            <img src="https://images.unsplash.com/photo-1632823469262-42750d8c7d81?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Diagnostics">
+            <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Car Diagnostics">
           </div>
         </div>
       </div>
@@ -244,7 +244,9 @@
             <div class="flex items-center space-x-4">
               <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-2xl">📞</div>
               <div>
-                <div class="font-bold text-2xl text-blue-400">(918) 704-8758</div>
+                <div class="font-bold text-2xl text-blue-400">
+                  <a href="tel:+19187048758" class="hover:text-blue-300 transition-colors">(918) 704-8758</a>
+                </div>
                 <div class="text-gray-400">Call or Text Anytime</div>
               </div>
             </div>
@@ -300,7 +302,7 @@
         <div>
           <h3 class="font-bold mb-4">Contact</h3>
           <ul class="space-y-2 text-gray-400">
-            <li>(918) 704-8758</li>
+            <li><a href="tel:+19187048758" class="hover:text-blue-400 transition-colors">(918) 704-8758</a></li>
             <li>7643 E 51st St</li>
             <li>Tulsa, OK 74145</li>
           </ul>
@@ -326,7 +328,7 @@
   </a>
 
   <script>
-    // Reviews data
+    // Reviews data (32 reviews total)
     const reviews = [
       { name: "Cody Collins", text: "Fast and affordable, definitely the guy to call! James saved me hundreds on my brake repair." },
       { name: "Lauren Banks", text: "James did an absolute wonderful job on my 2013 Nissan Altima. My A/C compressor was completely seized up and he got it working like new!" },
@@ -339,16 +341,39 @@
       { name: "Riley Jones", text: "Absolutely super helpful. Very kind, straight to the point, and honest about repairs." },
       { name: "Megan Hill", text: "Fast & saved me money! Definitely gained a loyal customer." },
       { name: "Chris Isaacs", text: "Professional and reliable service. Always does excellent work." },
-      { name: "Darwin Zanoria", text: "James did a WONDERFUL job on my F150 water pump replacement!" }
+      { name: "Darwin Zanoria", text: "James did a WONDERFUL job on my F150 water pump replacement!" },
+      { name: "Nevaeh Camacho", text: "James is great! Best mechanic I've been to in Tulsa." },
+      { name: "Aliyah Johnson", text: "Very outspoken and a very hard worker. Got my car running like new." },
+      { name: "Lexi Acker", text: "James was awesome! Very thorough & honest about what needed fixing." },
+      { name: "Neva Beena Rookie", text: "Best service I've had with a mechanic in years. Highly recommend!" },
+      { name: "alberto castillo", text: "Right on time for the job, good service and fair prices." },
+      { name: "Kamerian Mayfield", text: "James has done multiple jobs on my car and always does great work." },
+      { name: "Jerry Jackson Bishop", text: "James is a great mechanic and has repaired my vehicles multiple times." },
+      { name: "Josh Almasin", text: "Did a great job checking my vehicle thoroughly and explaining everything." },
+      { name: "Kay Andrews", text: "James found and replaced my Tahoe front seat saving me hundreds of dollars." },
+      { name: "Mason Hansen", text: "Impeccable service!! Saved me over $600 replacing my starter." },
+      { name: "Sam Benz", text: "Honest, Hard-working, Gets the job done right the first time." },
+      { name: "Matthew Allen", text: "James arrived on time and was able to identify what the problems were quickly." },
+      { name: "Tony Lam", text: "James was friendly and professional. Gave me a great quote for the work." },
+      { name: "Cait Brooner", text: "Reliable and prompt service. James really is THAT GUY!" },
+      { name: "Cathy Gueye", text: "James was professional, fast friendly and clean with his work." },
+      { name: "David Loughner", text: "Excellent mechanic! Fixed my car faster than I expected." },
+      { name: "Biship Kelly", text: "Great service and communication throughout the repair process." },
+      { name: "BRENT RAMSEY", text: "Outstanding work on my truck. Will definitely use again." },
+      { name: "brooke renfroe", text: "Excellent! Great job!! Very fast and efficient service!" },
+      { name: "my music", text: "First mobile mechanic I found online that actually showed up on time and did great work." }
     ];
 
     let visibleReviews = 6;
+    let showingAll = false;
     
     function renderReviews() {
       const grid = document.getElementById('reviewGrid');
       grid.innerHTML = '';
       
-      reviews.slice(0, visibleReviews).forEach(review => {
+      const reviewsToShow = showingAll ? reviews : reviews.slice(0, visibleReviews);
+      
+      reviewsToShow.forEach(review => {
         const reviewCard = document.createElement('div');
         reviewCard.className = 'bg-gray-700 p-6 rounded-xl transform hover:-translate-y-2 transition-all';
         reviewCard.innerHTML = `
@@ -362,15 +387,28 @@
       });
       
       const loadMoreBtn = document.getElementById('loadMoreReviews');
-      if (visibleReviews >= reviews.length) {
-        loadMoreBtn.style.display = 'none';
+      if (showingAll) {
+        loadMoreBtn.textContent = 'Show Less Reviews';
+        loadMoreBtn.style.display = 'block';
+      } else if (visibleReviews >= reviews.length) {
+        loadMoreBtn.textContent = 'Show Less Reviews';
+        showingAll = true;
       } else {
         loadMoreBtn.textContent = `Show More Reviews (${reviews.length - visibleReviews} remaining)`;
+        loadMoreBtn.style.display = 'block';
       }
     }
 
     document.getElementById('loadMoreReviews').addEventListener('click', () => {
-      visibleReviews += 6;
+      if (showingAll) {
+        showingAll = false;
+        visibleReviews = 6;
+      } else {
+        visibleReviews += 6;
+        if (visibleReviews >= reviews.length) {
+          showingAll = true;
+        }
+      }
       renderReviews();
     });
 
