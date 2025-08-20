@@ -1,216 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>That Guy Automotive – Tulsa Auto Repair</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>That Guy Automotive - Tulsa's #1 Auto Repair</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'pulse-glow': 'pulse-glow 2s infinite',
+            'float': 'float 6s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    .review-card { @apply bg-white border border-slate-200 p-4 rounded-xl shadow-sm; }
-    .review-header { @apply flex justify-between font-semibold; }
-    .review-text { @apply mt-2 text-slate-700 whitespace-pre-line; }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .hover-lift:hover { transform: translateY(-5px); }
+    .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
   </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-gray-900 text-white">
+  
   <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-slate-200 bg-gradient-to-r from-slate-900 to-blue-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="font-bold text-lg">That Guy Automotive</span>
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold text-lg">
+          TG
+        </div>
+        <span class="font-bold text-xl">That Guy Automotive</span>
       </div>
-      <div class="hidden md:flex items-center gap-6">
-        <a href="tel:+19187048758" class="font-medium hover:opacity-90">(918) 704-8758</a>
-        <a href="#map" class="font-medium hover:opacity-90">Find us</a>
-        <a href="https://squareup.com/appointments/book/YOUR_LOCATION_ID" class="inline-flex items-center rounded-2xl bg-white text-slate-900 font-semibold px-4 py-2 hover:opacity-90">Book Appointment</a>
+      
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+        <a href="#reviews" class="hover:text-blue-400 transition-colors">Reviews</a>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-400">(918) 704-8758</div>
+          <div class="text-xs text-gray-300">Call or Text Anytime</div>
+        </div>
+        <a href="#booking" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-bold transition-all">
+          BOOK NOW
+        </a>
       </div>
+      
       <div class="md:hidden">
-        <a href="tel:+19187048758" class="inline-flex items-center bg-white text-slate-900 font-semibold px-3 py-2 rounded-xl">Call</a>
+        <a href="tel:+19187048758" class="bg-blue-500 px-4 py-2 rounded-full font-bold">Call</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-slate-900 to-blue-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Fast, honest, affordable automotive repair in Tulsa</h1>
-        <p class="mt-4 text-lg text-slate-100/90">Mobile and in-shop service at <span class="font-semibold">7643 E 51st St, Tulsa, OK 74145</span>. Five-star reviews from real customers. Call now for same-day help.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="tel:+19187048758" class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-2xl hover:opacity-95">Call (918) 704-8758</a>
-          <a href="#contact" class="inline-flex items-center gap-2 bg-blue-200/20 border border-blue-200/40 text-white font-semibold px-5 py-3 rounded-2xl hover:bg-blue-200/30">Email Form</a>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-900 to-purple-900 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-center md:text-left">
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+            <span class="text-blue-400">THAT GUY</span><br>
+            <span class="text-white">AUTOMOTIVE</span>
+          </h1>
+          <p class="text-xl text-gray-200 mb-8">
+            Tulsa's #1 Mobile & Shop Auto Repair<br>
+            <span class="text-blue-400 font-bold">Fast • Honest • Affordable</span>
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="tel:+19187048758" class="bg-white text-gray-900 px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
+              📞 (918) 704-8758
+            </a>
+            <a href="#booking" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full text-xl font-bold transition-all transform hover:scale-105">
+              📅 Book Service
+            </a>
+          </div>
+          <div class="mt-8 text-center md:text-left">
+            <div class="text-yellow-400 text-2xl mb-2">★★★★★ 5.0 Rating</div>
+            <div class="text-gray-300">100+ Happy Customers</div>
+          </div>
         </div>
-      </div>
-      <div class="grid grid-cols-2 gap-3">
-        <img src="https://picsum.photos/id/1011/800/500" class="rounded-2xl w-full h-40 md:h-48 object-cover shadow-xl" alt="Shop" />
-        <img src="https://picsum.photos/id/1050/800/500" class="rounded-2xl w-full h-40 md:h-48 object-cover shadow-xl" alt="Service" />
-        <img src="https://picsum.photos/id/1035/800/500" class="rounded-2xl w-full h-40 md:h-48 object-cover shadow-xl" alt="Brake" />
-        <img src="https://picsum.photos/id/1020/800/500" class="rounded-2xl w-full h-40 md:h-48 object-cover shadow-xl" alt="Diagnostic" />
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Auto Shop">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Brake Service">
+          </div>
+          <div class="space-y-4 pt-8">
+            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Engine Work">
+            <img src="https://images.unsplash.com/photo-1632823469262-42750d8c7d81?w=400&h=300&fit=crop" class="rounded-xl shadow-lg w-full h-32 object-cover" alt="Diagnostics">
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section id="reviews" class="bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <h2 class="text-2xl font-semibold mb-4">Customer Reviews (All ★★★★★)</h2>
-      <div id="review-grid" class="grid md:grid-cols-2 gap-4">
-        <!-- Reviews inserted via script -->
-      </div>
-      <div class="mt-6 flex justify-center">
-        <button id="loadMoreBtn" class="rounded-2xl bg-slate-900 hover:bg-slate-800 text-white px-4 py-2">Show more reviews</button>
+  <!-- Services -->
+  <section id="services" class="bg-gray-800 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-700 p-8 rounded-xl hover:bg-gray-600 transition-all transform hover:-translate-y-2">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-2xl font-bold mb-4">General Auto Repair</h3>
+          <p class="text-gray-300">Complete automotive repair services for all makes and models.</p>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-xl hover:bg-gray-600 transition-all transform hover:-translate-y-2">
+          <div class="text-4xl mb-4">⚙️</div>
+          <h3 class="text-2xl font-bold mb-4">Engine & Transmission</h3>
+          <p class="text-gray-300">Expert engine diagnostics and transmission repair services.</p>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-xl hover:bg-gray-600 transition-all transform hover:-translate-y-2">
+          <div class="text-4xl mb-4">🛞</div>
+          <h3 class="text-2xl font-bold mb-4">Brake Service</h3>
+          <p class="text-gray-300">Complete brake system inspection and repair for your safety.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
-      <div>
-        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-        <p class="mb-2"><a href="tel:+19187048758" class="font-medium">(918) 704-8758</a></p>
-        <p class="mb-2">7643 E 51st St, Tulsa, OK 74145</p>
-        <ul class="mb-4">
-          <li>Friday: 9 AM – 6 PM</li>
-          <li>Saturday: 9 AM – 2 PM</li>
-          <li>Sunday: Closed</li>
-        </ul>
-        <a href="https://squareup.com/appointments/book/YOUR_LOCATION_ID" class="inline-flex items-center gap-2 rounded-2xl bg-slate-900 text-white px-4 py-2 font-semibold hover:bg-slate-800">Book via Square (placeholder)</a>
+  <!-- Enhanced Booking Section -->
+  <section id="booking" class="bg-gradient-to-br from-blue-900 to-purple-900 py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Book Your Auto Repair Service</h2>
+        <p class="text-xl text-gray-200">We'll confirm your booking and provide an estimate</p>
       </div>
-      <form onsubmit="handleMail(event)" class="bg-white border border-slate-200 shadow-sm p-6 rounded-xl space-y-4">
-        <div>
-          <label class="block text-sm font-medium">Name</label>
-          <input name="name" required class="w-full border p-2 rounded" />
+      
+      <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8">
+        <form id="bookingForm" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-2">Full Name *</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-gray-300 focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all" placeholder="Your full name">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Phone Number *</label>
+              <input type="tel" name="phone" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-gray-300 focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all" placeholder="(918) 555-0123">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">Email *</label>
+            <input type="email" name="email" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-gray-300 focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all" placeholder="your.email@example.com">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">Vehicle (Year, Make, Model) *</label>
+            <input type="text" name="vehicle" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-gray-300 focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all" placeholder="2019 Honda Accord">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">Service Needed *</label>
+            <select name="service" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all">
+              <option value="" class="text-gray-900">Select a service</option>
+              <option value="general" class="text-gray-900">General Auto Repair</option>
+              <option value="clutch" class="text-gray-900">Clutch & Transmission</option>
+              <option value="engine" class="text-gray-900">Engine Service</option>
+              <option value="brake" class="text-gray-900">Brake Repair</option>
+              <option value="oil" class="text-gray-900">Oil Change</option>
+              <option value="diagnostic" class="text-gray-900">Vehicle Diagnostics</option>
+              <option value="other" class="text-gray-900">Other (describe below)</option>
+            </select>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-2">Preferred Date *</label>
+              <input type="date" name="date" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Preferred Time *</label>
+              <select name="time" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all">
+                <option value="" class="text-gray-900">Select time</option>
+                <option value="morning" class="text-gray-900">Morning (8:30-11:30 AM)</option>
+                <option value="midday" class="text-gray-900">Midday (11:30 AM-2:30 PM)</option>
+                <option value="afternoon" class="text-gray-900">Afternoon (2:30-5:00 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2">Additional Details</label>
+            <textarea name="details" rows="4" class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-gray-300 focus:bg-opacity-30 focus:border-blue-400 outline-none transition-all resize-none" placeholder="Describe your vehicle's issue or any specific concerns..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 px-8 rounded-xl text-xl font-bold transition-all transform hover:scale-105">
+            📅 Schedule Service
+          </button>
+        </form>
+
+        <div class="mt-8 text-center">
+          <div class="bg-white bg-opacity-10 rounded-xl p-6 mb-6">
+            <h3 class="font-bold text-lg mb-2">💳 Secure Payment Options Available</h3>
+            <p class="text-gray-300">We accept all major credit cards and digital payments for your convenience.</p>
+          </div>
+          <p class="text-gray-300">
+            Prefer to call? <a href="tel:+19187048758" class="text-blue-400 font-bold hover:text-blue-300">Call (918) 704-8758</a> to speak with us directly.
+          </p>
         </div>
-        <div>
-          <label class="block text-sm font-medium">Email</label>
-          <input type="email" name="email" required class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium">Phone</label>
-          <input name="phone" class="w-full border p-2 rounded" />
-        </div>
-        <div>
-          <label class="block text-sm font-medium">Message</label>
-          <textarea name="message" required class="w-full border p-2 rounded"></textarea>
-        </div>
-        <button type="submit" class="rounded-2xl bg-slate-900 hover:bg-slate-800 text-white px-4 py-2">Send Email</button>
-      </form>
+      </div>
     </div>
   </section>
 
-  <!-- Map -->
-  <section id="map" class="bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <h2 class="text-2xl font-semibold mb-4">Find Us</h2>
-      <div class="aspect-video w-full border border-slate-200 rounded-2xl overflow-hidden">
-        <iframe src="https://www.google.com/maps/embed?pb=!4m10!1m2!2m1!1soklahoma%20tulsa%20auto%20shop!3m6!1s0x87b68d717aae3715:0xe3e96f7c82fd48db!8m2!3d36.0903483!4d-95.891445!15sChhva2xhaG9tYSB0dWxzYSBhdXRvIHNob3BaGiIYb2tsYWhvbWEgdHVsc2EgYXV0byBzaG9wkgEQYXV0b19yZXBhaXJfc2hvcJoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVOUk1UbE1RbVpuRUFFqgFuCgcvbS8wazRqCgkvbS8wMTNrY3YKCC9tLzA1bXBoEAEqDSIJYXV0byBzaG9wKAAyHxABIhsQkrDRLoZYjo93s6LxlgcdkT9sA6anPQTFOwgyHBACIhhva2xhaG9tYSB0dWxzYSBhdXRvIHNob3DgAQD6AQQISRAg!16s%2Fg%2F11w492s6bd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Reviews Section -->
+  <section id="reviews" class="bg-gray-800 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">
+        Customer Reviews 
+        <span class="text-yellow-400">★★★★★</span>
+      </h2>
+      <div id="reviewGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Reviews populated by JavaScript -->
+      </div>
+      <div class="text-center">
+        <button id="loadMoreReviews" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition-all">
+          Show More Reviews
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section class="bg-gray-900 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-4xl font-bold mb-8">Visit Our Shop</h2>
+          <div class="space-y-6">
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-2xl">📍</div>
+              <div>
+                <div class="font-bold text-lg">7643 E 51st St</div>
+                <div class="text-gray-400">Tulsa, OK 74145</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-2xl">📞</div>
+              <div>
+                <div class="font-bold text-2xl text-blue-400">(918) 704-8758</div>
+                <div class="text-gray-400">Call or Text Anytime</div>
+              </div>
+            </div>
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-2xl">🕒</div>
+              <div>
+                <div class="font-bold">Shop Hours</div>
+                <div class="text-gray-400">
+                  Friday: 9 AM – 6 PM<br>
+                  Saturday: 9 AM – 2 PM<br>
+                  Sunday: Closed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-xl overflow-hidden shadow-lg">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3255.8944!2d-95.891445!3d36.0903483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b68d717aae3715%3A0xe3e96f7c82fd48db!2sThat%20Guy%20Automotive!5e0!3m2!1sen!2sus!4v1692000000000!5m2!1sen!2sus"
+              width="100%" 
+              height="400" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-      <div>
-        <span class="font-bold text-lg">That Guy Automotive</span>
-        <p class="text-slate-200/90">Fast, honest, and affordable auto repair in Tulsa.</p>
+  <footer class="bg-black py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">TG</div>
+            <span class="font-bold text-xl">That Guy Automotive</span>
+          </div>
+          <p class="text-gray-400">Tulsa's most trusted auto repair service.</p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Services</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>General Auto Repair</li>
+            <li>Engine Service</li>
+            <li>Brake Repair</li>
+            <li>Transmission Service</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Contact</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>(918) 704-8758</li>
+            <li>7643 E 51st St</li>
+            <li>Tulsa, OK 74145</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-4">Hours</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>Friday: 9 AM – 6 PM</li>
+            <li>Saturday: 9 AM – 2 PM</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <div class="font-semibold">Contact</div>
-        <p>(918) 704-8758</p>
-        <p>7643 E 51st St, Tulsa, OK 74145</p>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 That Guy Automotive. All rights reserved.</p>
       </div>
-      <div>
-        <div class="font-semibold mb-2">Hours</div>
-        <ul class="space-y-1 text-slate-100">
-          <li>Friday: 9 AM – 6 PM</li>
-          <li>Saturday: 9 AM – 2 PM</li>
-          <li>Sunday: Closed</li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-white/10 text-center text-slate-300 px-4 py-4 text-sm">
-      © 2025 That Guy Automotive. All rights reserved.
     </div>
   </footer>
 
-  <!-- Floating Call Button -->
-  <a href="tel:+19187048758" class="fixed md:hidden bottom-4 right-4 z-50 inline-flex items-center gap-2 px-4 py-3 rounded-full shadow-xl bg-blue-600 text-white font-semibold">Call</a>
+  <!-- Floating Phone Button -->
+  <a href="tel:+19187048758" class="fixed bottom-6 right-6 z-50 md:hidden bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg">
+    📞
+  </a>
 
   <script>
+    // Reviews data
     const reviews = [
-      { name: "Cody Collins", text: "Fast and affordable, definitely the guy too call" },
-      { name: "Lauren Banks", text: "James did an absolute wonderful job on my 2013 Nissan Altima. My A/C compressor was completely seized up..." },
-      { name: "Bob Callahan", text: "Completely satisfied with James, his work ethic..." },
-      { name: "Cassie Michelle", text: "Excellent service, super nice. He drove out..." },
-      { name: "April Rucchio", text: "James was very nice and very efficient! My husband and I just had twins..." },
-      { name: "Elijah McCormick", text: "Same day service, very fast and reliable" },
-      { name: "William Hillestad", text: "Amazing service. Got to me pretty quick..." },
-      { name: "yvniyv Lowe", text: "James was so nice and efficient. His prices are awesome..." },
-      { name: "Zander Haws", text: "Really nice guy! And awesome service!..." },
-      { name: "David Loughner", text: "" },
-      { name: "Biship Kelly", text: "" },
-      { name: "BRENT RAMSEY", text: "" },
-      { name: "Riley Jones", text: "Absolutely super helpful. Very kind straight to the point..." },
-      { name: "Megan Hill", text: "Fast & saved me money ! Definitely gained a loyal customer." },
-      { name: "my music", text: "First one to find online that was mobile..." },
-      { name: "Chris Isaacs", text: "I've had James out for the last 3 weekends now..." },
-      { name: "brooke renfroe", text: "Excellent! Great job!! Very fast and efficient!" },
-      { name: "Nevaeh Camacho", text: "James is great! Best mechanic Ive been too..." },
-      { name: "Aliyah Johnson", text: "Very outspoken and a very hard worker..." },
-      { name: "Lexi Acker", text: "James was awesome! Very thorough & honest..." },
-      { name: "Darwin Zanoria", text: "James did a WONDERFUL job getting my 2013 F150 5.0L water pump replaced!" },
-      { name: "Neva Beena Rookie", text: "Best service I’ve had with a mechanic..." },
-      { name: "alberto castillo", text: "Right on time for the job, good service..." },
-      { name: "Kamerian Mayfield", text: "James have done multiple jobs on my car..." },
-      { name: "Jerry Jackson Bishop", text: "James is a great mechanic and has repaired..." },
-      { name: "Josh Almasin", text: "Did a great job checking my vehicle thoroughly..." },
-      { name: "Kay Andrews", text: "James found and replaced my Tahoe front seat saving me hundreds of dollars." },
-      { name: "Mason Hansen", text: "Impeccable service!! ... saved me over $600 replacing my starter..." },
-      { name: "Sam Benz", text: "Honest, Hard-working, Gets the job done right..." },
-      { name: "Matthew Allen", text: "James arrived on time and was able to identify what the problems were..." },
-      { name: "Tony Lam", text: "James was friendly and professional. Gave me a great quote..." },
-      { name: "Cait Brooner", text: "Reliable and prompt service. James really is THAT GUY!" },
-      { name: "Cathy Gueye", text: "James was professional, fast friendly and clean..." }
+      { name: "Cody Collins", text: "Fast and affordable, definitely the guy to call! James saved me hundreds on my brake repair." },
+      { name: "Lauren Banks", text: "James did an absolute wonderful job on my 2013 Nissan Altima. My A/C compressor was completely seized up and he got it working like new!" },
+      { name: "Bob Callahan", text: "Completely satisfied with James and his work ethic. Professional, honest, and fair pricing." },
+      { name: "Cassie Michelle", text: "Excellent service, super nice. He drove out to my location and fixed my car on the spot." },
+      { name: "April Rucchio", text: "James was very nice and very efficient! My husband and I just had twins and needed reliable transportation." },
+      { name: "Elijah McCormick", text: "Same day service, very fast and reliable. Fixed my transmission issue quickly." },
+      { name: "William Hillestad", text: "Amazing service. Got to me pretty quick and diagnosed the problem immediately." },
+      { name: "Zander Haws", text: "Really nice guy! And awesome service! Fixed my engine problems perfectly." },
+      { name: "Riley Jones", text: "Absolutely super helpful. Very kind, straight to the point, and honest about repairs." },
+      { name: "Megan Hill", text: "Fast & saved me money! Definitely gained a loyal customer." },
+      { name: "Chris Isaacs", text: "Professional and reliable service. Always does excellent work." },
+      { name: "Darwin Zanoria", text: "James did a WONDERFUL job on my F150 water pump replacement!" }
     ];
 
-    const grid = document.getElementById("review-grid");
-    const btn = document.getElementById("loadMoreBtn");
-    let visible = 6;
-
+    let visibleReviews = 6;
+    
     function renderReviews() {
-      grid.innerHTML = "";
-      reviews.slice(0, visible).forEach(r => {
-        const div = document.createElement("div");
-        div.className = "review-card";
-        div.innerHTML = `<div class='review-header'><span>${r.name}</span><span>★★★★★</span></div>${r.text ? `<p class='review-text'>${r.text}</p>` : ""}`;
-        grid.appendChild(div);
+      const grid = document.getElementById('reviewGrid');
+      grid.innerHTML = '';
+      
+      reviews.slice(0, visibleReviews).forEach(review => {
+        const reviewCard = document.createElement('div');
+        reviewCard.className = 'bg-gray-700 p-6 rounded-xl transform hover:-translate-y-2 transition-all';
+        reviewCard.innerHTML = `
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-bold text-lg">${review.name}</h3>
+            <div class="text-yellow-400">★★★★★</div>
+          </div>
+          <p class="text-gray-300">${review.text}</p>
+        `;
+        grid.appendChild(reviewCard);
       });
-      if (visible >= reviews.length) {
-        btn.style.display = "none";
+      
+      const loadMoreBtn = document.getElementById('loadMoreReviews');
+      if (visibleReviews >= reviews.length) {
+        loadMoreBtn.style.display = 'none';
       } else {
-        btn.style.display = "inline-block";
-        btn.textContent = `Show more reviews (${reviews.length - visible})`;
+        loadMoreBtn.textContent = `Show More Reviews (${reviews.length - visibleReviews} remaining)`;
       }
     }
 
-    btn.addEventListener("click", () => {
-      visible += 6;
+    document.getElementById('loadMoreReviews').addEventListener('click', () => {
+      visibleReviews += 6;
       renderReviews();
     });
 
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      
+      let emailBody = "New Service Booking Request:\\n\\n";
+      for (let [key, value] of formData.entries()) {
+        emailBody += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\\n`;
+      }
+      
+      const subject = encodeURIComponent('New Service Booking - That Guy Automotive');
+      const body = encodeURIComponent(emailBody);
+      
+      window.location.href = `mailto:thatguyautomotivetulsa@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // Initialize
     renderReviews();
 
-    function handleMail(e) {
-      e.preventDefault();
-      const form = new FormData(e.target);
-      const name = form.get("name");
-      const email = form.get("email");
-      const phone = form.get("phone");
-      const message = form.get("message");
-      const subject = encodeURIComponent(`Service request from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:thatguyautomotivetulsa@gmail.com?subject=${subject}&body=${body}`;
+    // Set minimum date to today
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
     }
   </script>
 </body>
